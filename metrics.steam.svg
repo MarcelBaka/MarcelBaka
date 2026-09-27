@@ -1,50 +1,60 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="480" height="80" class="">
-    <defs>
-        <style/>
-    </defs>
-    <style>@keyframes animation-gauge{0%{stroke-dasharray:0 329}}@keyframes animation-rainbow{0%,to{color:#7f00ff;fill:#7f00ff}14%{color:#a933ff;fill:#a933ff}29%{color:#007fff;fill:#007fff}43%{color:#00ff7f;fill:#00ff7f}57%{color:#ff0;fill:#ff0}71%{color:#ff7f00;fill:#ff7f00}86%{color:red;fill:red}}svg{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;font-size:14px;color:#777}h2{margin:8px 0 2px;padding:0;color:#0366d6;font-weight:400;font-size:16px}h2 svg{fill:currentColor}section&gt;.field{margin-left:5px;margin-right:5px}.field{display:flex;align-items:center;margin-bottom:2px;white-space:nowrap}.field svg{margin:0 8px;fill:#959da5;flex-shrink:0}.row{display:flex;flex-wrap:wrap}.row section{flex:1 1 0}.steam .games{margin-left:28px}:root{--color-calendar-graph-day-bg:#ebedf0;--color-calendar-graph-day-border:rgba(27,31,35,0.06);--color-calendar-graph-day-L1-bg:#9be9a8;--color-calendar-graph-day-L2-bg:#40c463;--color-calendar-graph-day-L3-bg:#30a14e;--color-calendar-graph-day-L4-bg:#216e39;--color-calendar-halloween-graph-day-L1-bg:#ffee4a;--color-calendar-halloween-graph-day-L2-bg:#ffc501;--color-calendar-halloween-graph-day-L3-bg:#fe9600;--color-calendar-halloween-graph-day-L4-bg:#03001c;--color-calendar-winter-graph-day-L1-bg:#0a3069;--color-calendar-winter-graph-day-L2-bg:#0969da;--color-calendar-winter-graph-day-L3-bg:#54aeff;--color-calendar-winter-graph-day-L4-bg:#b6e3ff;--color-calendar-graph-day-L4-border:rgba(27,31,35,0.06);--color-calendar-graph-day-L3-border:rgba(27,31,35,0.06);--color-calendar-graph-day-L2-border:rgba(27,31,35,0.06);--color-calendar-graph-day-L1-border:rgba(27,31,35,0.06)}#metrics-end{width:100%}</style>
-    <style/>
-    <foreignObject x="0" y="0" width="100%" height="100%">
-        <div xmlns="http://www.w3.org/1999/xhtml" xmlns:xlink="http://www.w3.org/1999/xlink" class="items-wrapper">
-            <section class="steam">
-                <h2 class="field">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
-                        <path fill-rule="evenodd" d="M3.267 1.457c.3.286.312.76.026 1.06A6.475 6.475 0 001.5 7a6.472 6.472 0 001.793 4.483.75.75 0 01-1.086 1.034 8.89 8.89 0 01-.276-.304l.569-.49-.569.49A7.971 7.971 0 010 7c0-2.139.84-4.083 2.207-5.517a.75.75 0 011.06-.026zm9.466 0a.75.75 0 011.06.026A7.975 7.975 0 0116 7c0 2.139-.84 4.083-2.207 5.517a.75.75 0 11-1.086-1.034A6.475 6.475 0 0014.5 7a6.475 6.475 0 00-1.793-4.483.75.75 0 01.026-1.06zM8.75 8.582a1.75 1.75 0 10-1.5 0v5.668a.75.75 0 001.5 0V8.582zM5.331 4.736a.75.75 0 10-1.143-.972A4.983 4.983 0 003 7c0 1.227.443 2.352 1.177 3.222a.75.75 0 001.146-.967A3.483 3.483 0 014.5 7c0-.864.312-1.654.831-2.264zm6.492-.958a.75.75 0 00-1.146.967c.514.61.823 1.395.823 2.255 0 .86-.31 1.646-.823 2.255a.75.75 0 101.146.967A4.983 4.983 0 0013 7a4.983 4.983 0 00-1.177-3.222z"/>
-                    </svg>
-                    Steam
-                </h2>
-                <div class="row">
-                    <section>
-                        <div class="field">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
-                                <path d="M10.561 8.073a6.005 6.005 0 0 1 3.432 5.142.75.75 0 1 1-1.498.07 4.5 4.5 0 0 0-8.99 0 .75.75 0 0 1-1.498-.07 6.004 6.004 0 0 1 3.431-5.142 3.999 3.999 0 1 1 5.123 0ZM10.5 5a2.5 2.5 0 1 0-5 0 2.5 2.5 0 0 0 5 0Z"/>
-                            </svg>
-                            Marcelzlizuj
-                        </div>
-                        <div class="field">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
-                                <path d="m10.41.24 4.711 2.774c.544.316.878.897.879 1.526v5.01a1.77 1.77 0 0 1-.88 1.53l-7.753 4.521-.002.001a1.769 1.769 0 0 1-1.774 0H5.59L.873 12.85A1.761 1.761 0 0 1 0 11.327V6.292c0-.304.078-.598.22-.855l.004-.005.01-.019c.15-.262.369-.486.64-.643L8.641.239a1.752 1.752 0 0 1 1.765 0l.002.001ZM9.397 1.534l-7.17 4.182 4.116 2.388a.27.27 0 0 0 .269 0l7.152-4.148-4.115-2.422a.252.252 0 0 0-.252 0Zm-7.768 10.02 4.1 2.393V9.474a1.807 1.807 0 0 1-.138-.072L1.5 7.029v4.298c0 .095.05.181.129.227Zm8.6.642 1.521-.887v-4.45l-1.521.882ZM7.365 9.402h.001c-.044.026-.09.049-.136.071v4.472l1.5-.875V8.61Zm5.885 1.032 1.115-.65h.002a.267.267 0 0 0 .133-.232V5.264l-1.25.725Z"/>
-                            </svg>
-                            460 games
-                        </div>
-                    </section>
-                    <section>
-                        <div class="field">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
-                                <path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Zm0 2.445L6.615 5.5a.75.75 0 0 1-.564.41l-3.097.45 2.24 2.184a.75.75 0 0 1 .216.664l-.528 3.084 2.769-1.456a.75.75 0 0 1 .698 0l2.77 1.456-.53-3.084a.75.75 0 0 1 .216-.664l2.24-2.183-3.096-.45a.75.75 0 0 1-.564-.41L8 2.694Z"/>
-                            </svg>
-                            Steam level 70
-                        </div>
-                        <div class="field">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
-                                <path d="m.427 1.927 1.215 1.215a8.002 8.002 0 1 1-1.6 5.685.75.75 0 1 1 1.493-.154 6.5 6.5 0 1 0 1.18-4.458l1.358 1.358A.25.25 0 0 1 3.896 6H.25A.25.25 0 0 1 0 5.75V2.104a.25.25 0 0 1 .427-.177ZM7.75 4a.75.75 0 0 1 .75.75v2.992l2.028.812a.75.75 0 0 1-.557 1.392l-2.5-1A.751.751 0 0 1 7 8.25v-3.5A.75.75 0 0 1 7.75 4Z"/>
-                            </svg>
-                            6.86k hours played
-                        </div>
-                    </section>
-                </div>
-            </section>
-        </div>
-        <div xmlns="http://www.w3.org/1999/xhtml" id="metrics-end"></div>
-    </foreignObject>
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="1212" viewBox="0 0 480 1212" role="img" aria-label="Steam profile and games">
+<style>text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}.bg{fill:#fff;stroke:#d0d7de}.title{fill:#24292f;font-size:16px;font-weight:600}.section{fill:#0969da;font-size:15px;font-weight:600}.name{fill:#0969da;font-size:14px;font-weight:600}.meta{fill:#57606a;font-size:12px}.rule{stroke:#d8dee4}.tile{fill:#eaeef2}@media(prefers-color-scheme:dark){.bg{fill:#0d1117;stroke:#30363d}.title{fill:#e6edf3}.section,.name{fill:#58a6ff}.meta{fill:#8b949e}.rule{stroke:#30363d}.tile{fill:#21262d}}</style>
+<rect class="bg" x="0.5" y="0.5" width="479" height="1211" rx="6"/>
+<text class="title" x="20" y="31">Steam</text>
+<text class="meta" x="20" y="56">Marcelzlizuj · Level 70</text>
+<text class="meta" x="20" y="78">460 games · 6,864 hours played</text>
+<text class="section" x="20" y="132">Most played</text>
+<line class="rule" x1="20" x2="460" y1="150" y2="150"/>
+<image x="20" y="164" width="32" height="32" href="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQIAJgAmAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCAAgACADAREAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD8xfCHhDUvGutW+maZbtcXMzYVRwAO5J7AdzXLicTSwlJ1qztFHbg8HXx9eOHw8byf9Xfke3eLPgJ4Z+G3ge8udZ19JfEpg3W1nG6orPkcBTlmHXnivksHnmKzHFxhh6VqV9Xvp+SPvcfw1gspwM6mKr3rW0imkr+m7/A+jPgT/wAE+vhb+1B8AdD1Pwl8RE034pCzaTU9JmnjuIo5Q7BQ8IAkjBUL8wJHPQ19ufmp8R/Gf4MeKfgN491Hwj4u059O1azbkZ3RyofuyRt0ZGHII+nBBFAHqnwC8SeHvhx8P/EOvXF7aHxE6sltZu481lVQVAHXDMefZa+GzzDYnMMXRw0Yv2fV9Nf8kfpvDONwWU4DEYyc17Z3UY31stvvf5HkV3d6t448RNLK02p6tfS4AGWd2J4UD+Q7V9fCFHBUeWNowij4CpUxOZYnmledSb+bZo+GvEvij4OeOrTV9Iurvw94m0icPHIhKSRuOdrDuD0IPBBrWlVhWgqlN3i9mc9ajUw9R0q0XGS3TPur9v8A+Kvw5/ae/Zc+HXxBtdc0WP4m2Yhjv9FguUN2kcqkTIY87tqSqGGegY+tamJgfsCfs6/Cr9qf4EfEHw7qGlwx/FfTlkk07U3upVZY5IwIX8sNtKpKpVvlPDD1FAHxl4h8PeJfhD46utK1W1udB8S6NclJIpF2vFIp6jPUHqD0INZVaUK0HTqK8XujajWqYepGtSdpRd0x2haF4o+Mnjy20zTLW68Q+J9YuBHHFEu55XPGTjgADqegApUaNPD01SpK0VsisRiKuKqyrVpc0pbs+0f29v2d/hV+yv8As8/D/wAO2ekW0vxa1IRNf6qlxKztHGh8+TYW2hWkZVX5RwD6GtjnPij4K/GrxT8A/H+neL/COoNYarZseo3RzIfvRyL/ABIw6j8RggGgD7i+OH7e3wa/ak+BWu23jH4eDSviwmn+XpeqRW6zxrPkcpOCJEXr8rggZ6mgB3wK/b5+Df7LfwF0K08JfD4ar8V3sPL1TUntkt43m3Ny85JkdcbflUAHHUUAfD3xt+Nvir4/+P8AUPF/i/UDfapdnAAG2KCMfdijX+FF7D6k5JJoA//Z"/>
+<a href="https://store.steampowered.com/app/1366800/"><text class="name" x="62" y="179">Crosshair X</text></a>
+<text class="meta" x="62" y="198">Action, Adventure, Indie, Software Training, Utilities</text>
+<text class="meta" x="62" y="220">1,276.4 hours played</text>
+<text class="meta" x="62" y="239">Last played 20 Sep 2026</text>
+<text class="meta" x="62" y="259">2 / 17 achievements unlocked</text>
+<text class="meta" x="62" y="281">✓ Locked In · 26 Jun 2026</text>
+<text class="meta" x="62" y="299">✓ Bullseye! · 26 Jun 2026</text>
+<line class="rule" x1="20" x2="460" y1="320" y2="320"/>
+<image x="20" y="334" width="32" height="32" href="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQIAJQAlAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAgACADASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAABAYHCAX/xAAtEAABAwMCBQIFBQAAAAAAAAABAgMEAAURBjEHEiFBYRQjExUigZEkMlFx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAYH/8QAJhEAAgEDAwIHAQAAAAAAAAAAAQIDAAQxBSGREYEGEiJBYaGx8P/aAAwDAQACEQMRAD8AoYpq0VaFvPouKykNNqISkpzzHG/jFKzaStaUJBKlEAAbmqrKkxLLZXpUj2IcRkuuYGeVKRk9BvU/8Oaet1OZXwnTb59uOlJtVuTDGEXLflSzjNwzgXyU/qSTd2bPHjR/1Kkwy6XME/UcKGT1xtms/aktmnoDLRsuoXrs8snmT6BTCUYxjJUrvk7A7dq72suK2pNSsvRHJXp7csuJ+E2kJLjalZCVnY4AA6Ad/wCaQKsFrFIigO3b+FDXZSdhWvtFRFSLyh0t8zTIKiSOgPb7/wCUyNXmPcLvMtMhtLkZaS0ARkL6EKB8Hr+K5Hq/kWmmGmciZMBcKsftB7/jFD6SWmFGut0Ww9IVFZKkttIK1r6EkJA3JwB96lumyPbPDZQn1MfM3cY4+6VXSCZZLiQbDYc55rL/ABEsCNMazutoZdDjMd32znJCFAKSD5AIB/ql2jr9OlXO9z51wChMkPrcdSoEFKiTkYO2NseKBqtoCFAbNEjnav/Z"/>
+<a href="https://store.steampowered.com/app/730/"><text class="name" x="62" y="349">Counter-Strike 2</text></a>
+<text class="meta" x="62" y="368"></text>
+<text class="meta" x="62" y="390">559.7 hours played</text>
+<text class="meta" x="62" y="409">Last played 05 Sep 2026</text>
+<text class="meta" x="62" y="429">1 / 1 achievements unlocked</text>
+<text class="meta" x="62" y="451">✓ A New Beginning · 28 Sep 2023</text>
+<line class="rule" x1="20" x2="460" y1="490" y2="490"/>
+<image x="20" y="504" width="32" height="32" href="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQIAJQAlAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAgACADASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAABQYCBAcD/8QALxAAAQMCBQIEBAcAAAAAAAAAAQIDBAURAAYSITFhgRQiQVEHE3GxFSNCUpGhov/EABgBAAIDAAAAAAAAAAAAAAAAAAEEAgMF/8QAHhEAAQUAAgMAAAAAAAAAAAAAAQACAxESIUFhgbH/2gAMAwEAAhEDEQA/AMlrsZcd2NGQlSnCCEpAuSSdgB3wfoeV6U3Kaar8uRIlLAPhIQulB9lr37249zihW5HhczQH3FLFjsoDdJtYHsSD2wWpVNrMWkyqlH+YGohGttCUqceX73IPGr2I242vhF7yAKWubI9D4rmc8pUODTUGIzJgzCCs3cLiRYA2N/TfofrxhRy5TkzY7zCx5m1kn+hghmCZXlU5h2pOLDMkqSy3JaCVG29vKAR3sDiOUJKWjUZflv4hplLKDcHWf3dNPe+AzQadG1DQojwumYqLKrWYGINLTrUUm7qtkI2BJJ9Pvh+dnsZdZYjT9RUtAdBSjy6rC9x6b3OGpybSvxDQyn8sG5UAVEfTk9hjOM5S5U6S46aW+iCEJSH3iAtW+6ygcX22/nnCz3mSm9KyOSjyhefnY8iO7NhriPpNgpSAoXJI5v8Aqtfrzir8PIZqDq0O6UstKDuhKbAlPH3552wBlwFTIo8NZcuKSFNIVe6NySketunPW2Gn4TuWVJsbXSb/AOcNAYjoIWJC4r//2Q=="/>
+<a href="https://store.steampowered.com/app/394360/"><text class="name" x="62" y="519">Hearts of Iron IV</text></a>
+<text class="meta" x="62" y="538"></text>
+<text class="meta" x="62" y="560">549.4 hours played</text>
+<text class="meta" x="62" y="579">Last played 27 May 2026</text>
+<text class="meta" x="62" y="599">31 / 293 achievements unlocked</text>
+<text class="meta" x="62" y="621">✓ No country for old men · 11 May 2026</text>
+<text class="meta" x="62" y="639">✓ United Netherlands · 08 May 2026</text>
+<text class="section" x="20" y="684">Recently played</text>
+<line class="rule" x1="20" x2="460" y1="702" y2="702"/>
+<image x="20" y="716" width="32" height="32" href="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQIAJgAmAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCAAgACADAREAAhEBAxEB/8QAGgAAAgIDAAAAAAAAAAAAAAAACAkDBwUGCv/EAC8QAAEDAwIEBAQHAAAAAAAAAAECAwQFBhEABwgSITETIkFRFjJhcQkUI0OBkaH/xAAaAQACAgMAAAAAAAAAAAAAAAAFBgAEAQIH/8QAKhEAAgEDAgQFBQEAAAAAAAAAAQIDAAQRBTESIVGRImGB0fATM0FxoRX/2gAMAwEAAhEDEQA/AFaSJEqpz3HHHXJEl5ZUpSlEqUon1OpUo59u/wAO2fa0aNVb/C5r60BxMKKSYrJx8rixgrV1HlHKMgjKhpLv9YnwVtlwOv59Ph9KabLTIThpmyenvW1XpwZWHdcbMZp2iTseWRTSEpPtlrHKR9QB276Awa9d25wx4h0PvvRabSbaYchwnyoT92uHO4dlZKaixWolUhsrStEiM4Wn2+owSg/X2J09aZqH+kpZYyMb9O9K17p7WfMsCD37VgOHy0Wr33dtaiugKRUatFhn7OPJSf8ADowx4UJoUBlgK6Q/huDLpyGXo6FgowTjVQxK6BHGRWQ7qxdGwTQpcWtl03bm1ZdcpbRZlrwEttK5AtRUkYI7ep641St9As7u9i4x4STkfoE7770Yh1e4WF1O4xg/s0tjfuDU3bTlzqg4gLeQf0GskJA69VHuf6Gum3UEVtZmKFQqgbCgJleZy7nJqLhh2pqG0992luBdrD0eMl1mo02Gls+G+T5my4/goQflUEDmV0woI6ZRoSl8WhikAI7+gq99F4QJXU4pxVhcS1AumEnxQuK420XHObCkIQkeZZUnICfqrGtpYZoPuDl5e1VwFf7Z71R3HJfcC4LfocGA+JDb8pC1Fvr5U5J7fxoropWS7JU54VP9I9jUeN4oSXGMkfzPvS6uIq+aQq2lU0SmzIXzBKEnmJJSpPp3698ZA9SO2mTUZUSEqx5mqqDnUe2HHhdG38D4Zuy32KxTWAIyi22Gn0JHQhSFAoX06Ywn764/daEsrGSByrb9R7j+0z22qtGAsq5HlvV4QOM6wpO28ul0CSLQYWS/NZpaEU+ZMSf2HVlCwtvv5Wsdz76J6Y+oR3KQ3niUZ8R54/PXttWl0LKaNpYjhum3zz3oWd2eKyt3o2zTqRHZpdLio8FhuO1yoSnpk4OVOKVgErcJKvUZAOm9r1IeIWo5ndjufnwUCPEwAY8hVGD8/XKmjm8ebNfWEgqytaz2A0IZmc8THJrNf//Z"/>
+<a href="https://store.steampowered.com/app/362620/"><text class="name" x="62" y="731">Software Inc.</text></a>
+<text class="meta" x="62" y="750">Indie, Simulation, Strategy, Early Access</text>
+<text class="meta" x="62" y="772">10.5 hours played</text>
+<text class="meta" x="62" y="791">Last played 27 Sep 2026</text>
+<text class="meta" x="62" y="811">0 / 15 achievements unlocked</text>
+<line class="rule" x1="20" x2="460" y1="872" y2="872"/>
+<image x="20" y="886" width="32" height="32" href="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQIAJQAlAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/wAALCAAgACABAREA/8QAGAABAAMBAAAAAAAAAAAAAAAACAAFBgf/xAAoEAABAwMEAQQCAwAAAAAAAAABAgMEBQYRAAcSIQgTFDFBIiRCcYH/2gAIAQEAAD8AKmkHsXsBFvm2EXFcVTkxYD61JjsxAkLUEqKSoqUCB2CMY+vnVzun43UyiWbOr9pViZIEJhUlxmWUOBxtIyopWgJxgAn4OcaMepp6+N8X33j3RYnPh67UtrljPHk+6M4/3Vbe1m3Rauy9UplGuaLIp0ClvNusSKeEqcYDauYCwvpXHOOj3oOaml3b0yTA8LfcwZD0aQhl3g6ysoUn9xQ6I7HWti7Y0i1dqL5mVSu1qrVSbRJKX1VGQHAkJac48Ugnj0e/yV/egnqa7htrvDRaftu9Yt8UeZNoilHg7BcAc4lfqFJBI/lk5B+8Y1rd2PJWDcFp1CiWtSZrRnsqjvSZpSkobUMKCUJKskgkZJGNGLX/2Q=="/>
+<a href="https://store.steampowered.com/app/359550/"><text class="name" x="62" y="901">Tom Clancy&#x27;s Rainbow Six Siege</text></a>
+<text class="meta" x="62" y="920"></text>
+<text class="meta" x="62" y="942">158.1 hours played</text>
+<text class="meta" x="62" y="961">Last played 27 Sep 2026</text>
+<text class="meta" x="62" y="981">39 / 48 achievements unlocked</text>
+<text class="meta" x="62" y="1003">✓ Perfectionist · 17 Sep 2026</text>
+<text class="meta" x="62" y="1021">✓ Overachiever · 23 Aug 2026</text>
+<line class="rule" x1="20" x2="460" y1="1042" y2="1042"/>
+<rect class="tile" x="20" y="1056" width="32" height="32" rx="5"/>
+<a href="https://store.steampowered.com/app/553850/"><text class="name" x="62" y="1071">HELLDIVERS™ 2</text></a>
+<text class="meta" x="62" y="1090">Action</text>
+<text class="meta" x="62" y="1112">77.5 hours played</text>
+<text class="meta" x="62" y="1131">Last played 27 Sep 2026</text>
+<text class="meta" x="62" y="1151">31 / 38 achievements unlocked</text>
+<text class="meta" x="62" y="1173">✓ Ship it! · 13 Sep 2026</text>
+<text class="meta" x="62" y="1191">✓ Promote Synergy · 31 Aug 2026</text>
 </svg>
