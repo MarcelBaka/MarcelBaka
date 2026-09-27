@@ -7,7 +7,7 @@ import json
 import os
 import re
 from urllib.error import HTTPError, URLError
-from urllib.parse import urlencode
+from urllib.parse import urlencode, urlsplit, urlunsplit
 from urllib.request import Request, urlopen
 from zoneinfo import ZoneInfo
 
@@ -43,7 +43,18 @@ def optional_json(url):
 
 def image_data(url):
     """Embed only actual images; Steam sometimes serves an error page instead."""
-    if not url or not url.startswith("https://"):
+    if not isinstance(url, str):
+        return None
+    parsed = urlsplit(url)
+    # Steam's achievement schema still supplies some image URLs over HTTP.
+    # Upgrade only Steam-owned image hosts before fetching them.
+    host = (parsed.hostname or "").lower()
+    if parsed.scheme == "http" and (
+        host == "steampowered.com" or host.endswith(".steampowered.com")
+        or host == "steamstatic.com" or host.endswith(".steamstatic.com")
+    ):
+        url = urlunsplit(("https", parsed.netloc, parsed.path, parsed.query, parsed.fragment))
+    elif parsed.scheme != "https":
         return None
     try:
         with urlopen(Request(url, headers={"User-Agent": "profile-metrics"}), timeout=8) as response:
@@ -63,12 +74,16 @@ def image_data(url):
         return None
 
 
-def icon_data(game):
-    digest = game.get("img_icon_url", "")
-    if not re.fullmatch(r"[a-fA-F0-9]+", digest):
-        return None
-    url = f"https://media.steampowered.com/steamcommunity/public/images/apps/{int(game['appid'])}/{digest}.jpg"
-    return image_data(url)
+def icon_data(game, store_image=None):
+    appid = int(game["appid"])
+    for field in ("img_icon_url", "img_logo_url"):
+        digest = game.get(field, "")
+        if re.fullmatch(r"[a-fA-F0-9]+", digest):
+            url = f"https://media.steampowered.com/steamcommunity/public/images/apps/{appid}/{digest}.jpg"
+            icon = image_data(url)
+            if icon:
+                return icon
+    return image_data(store_image)
 
 
 def enrich(game, key, steam_id):
@@ -76,13 +91,15 @@ def enrich(game, key, steam_id):
     appid = int(game["appid"])
     details = optional_json(f"https://store.steampowered.com/api/appdetails?appids={appid}&l=en")
     about = details.get(str(appid), {})
+    store_image = None
     if isinstance(about, dict) and isinstance(about.get("data"), dict):
         game["genres"] = ", ".join(
             item.get("description", "") for item in about["data"].get("genres", [])
         )
+        store_image = about["data"].get("header_image")
     else:
         game["genres"] = ""
-    game["icon"] = icon_data(game)
+    game["icon"] = icon_data(game, store_image)
     try:
         schema_result = steam_api(
             "ISteamUserStats/GetSchemaForGame/v0002/", key, steam_id, appid=appid
@@ -104,7 +121,10 @@ def enrich(game, key, steam_id):
         game["latest_achievements"] = [
             {
                 **item,
-                "icon": image_data(schema.get(item.get("apiname"), {}).get("icon")),
+                "icon": (
+                    image_data(schema.get(item.get("apiname"), {}).get("icon"))
+                    or image_data(schema.get(item.get("apiname"), {}).get("icongray"))
+                ),
             }
             for item in latest
         ]
@@ -160,7 +180,7 @@ def embedded_image(source, x, y, size):
     return (
         f'<foreignObject x="{x}" y="{y}" width="{size}" height="{size}">'
         f'<img xmlns="http://www.w3.org/1999/xhtml" src="{source}" '
-        f'width="{size}" height="{size}" style="border-radius:5px"/>'
+        f'width="{size}" height="{size}" style="border-radius:5px;object-fit:cover"/>'
         '</foreignObject>'
     )
 
