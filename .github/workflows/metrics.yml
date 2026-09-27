@@ -78,19 +78,7 @@ jobs:
           plugin_traffic: yes
           plugins_errors_fatal: yes
 
-      - name: Steam
-        uses: lowlighter/metrics@latest
-        with:
-          filename: metrics.steam.svg
-          token: NOT_NEEDED
-          base: ""
-          plugin_steam: yes
-          plugin_steam_token: ${{ secrets.STEAM_API_KEY }}
-          plugin_steam_user: ${{ secrets.STEAM_ID }}
-          plugin_steam_sections: player
-          plugins_errors_fatal: yes
-
-      - name: Recently played Steam games
+      - name: Detailed Steam profile and games
         env:
           STEAM_API_KEY: ${{ secrets.STEAM_API_KEY }}
           STEAM_ID: ${{ secrets.STEAM_ID }}
