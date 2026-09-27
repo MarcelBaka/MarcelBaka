@@ -25,6 +25,6 @@ I build small games and desktop tools. My recent work uses Python, Pygame and Sw
 
 ## Steam
 
-![Steam profile and games](./metrics.steam.svg)
+![Steam player profile](./metrics.steam.svg)
 
 <sub>Statistics generated with [lowlighter/metrics](https://github.com/lowlighter/metrics). Updated daily.</sub>
