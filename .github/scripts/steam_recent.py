@@ -41,20 +41,34 @@ def optional_json(url):
         return {}
 
 
+def image_data(url):
+    """Embed only actual images; Steam sometimes serves an error page instead."""
+    if not url or not url.startswith("https://"):
+        return None
+    try:
+        with urlopen(Request(url, headers={"User-Agent": "profile-metrics"}), timeout=8) as response:
+            data = response.read(150_001)
+        if len(data) > 150_000:
+            return None
+        if data.startswith(b"\xff\xd8\xff"):
+            mime = "image/jpeg"
+        elif data.startswith(b"\x89PNG\r\n\x1a\n"):
+            mime = "image/png"
+        elif data.startswith((b"GIF87a", b"GIF89a")):
+            mime = "image/gif"
+        else:
+            return None
+        return f"data:{mime};base64," + base64.b64encode(data).decode("ascii")
+    except (HTTPError, URLError, TimeoutError):
+        return None
+
+
 def icon_data(game):
-    """Accept only real images; Steam occasionally responds with non-image data."""
     digest = game.get("img_icon_url", "")
     if not re.fullmatch(r"[a-fA-F0-9]+", digest):
         return None
     url = f"https://media.steampowered.com/steamcommunity/public/images/apps/{int(game['appid'])}/{digest}.jpg"
-    try:
-        with urlopen(Request(url, headers={"User-Agent": "profile-metrics"}), timeout=8) as response:
-            data = response.read(150_001)
-        if len(data) > 150_000 or not data.startswith(b"\xff\xd8\xff"):
-            return None
-        return "data:image/jpeg;base64," + base64.b64encode(data).decode("ascii")
-    except (HTTPError, URLError, TimeoutError):
-        return None
+    return image_data(url)
 
 
 def enrich(game, key, steam_id):
@@ -70,15 +84,30 @@ def enrich(game, key, steam_id):
         game["genres"] = ""
     game["icon"] = icon_data(game)
     try:
+        schema_result = steam_api(
+            "ISteamUserStats/GetSchemaForGame/v0002/", key, steam_id, appid=appid
+        )
+        schema_items = schema_result.get("game", {}).get("availableGameStats", {}).get("achievements", [])
+        schema = {item["name"]: item for item in schema_items}
+    except (RuntimeError, ValueError, TypeError, KeyError):
+        schema = {}
+    try:
         result = steam_api(
             "ISteamUserStats/GetPlayerAchievements/v0001/", key, steam_id, appid=appid, l="en"
         )
         list_ = result.get("playerstats", {}).get("achievements", [])
         game["achievements"] = (sum(bool(item.get("achieved")) for item in list_), len(list_))
-        game["latest_achievements"] = sorted(
+        latest = sorted(
             (item for item in list_ if item.get("achieved") and item.get("unlocktime")),
             key=lambda item: item["unlocktime"], reverse=True
         )[:2]
+        game["latest_achievements"] = [
+            {
+                **item,
+                "icon": image_data(schema.get(item.get("apiname"), {}).get("icon")),
+            }
+            for item in latest
+        ]
     except (RuntimeError, ValueError, TypeError, KeyError):
         game["achievements"] = None
         game["latest_achievements"] = []
@@ -129,50 +158,67 @@ def date(timestamp):
 
 def render(data):
     sections = [("Most played", data["most"]), ("Recently played", data["recent"])]
-    height = 108 + sum(42 + 170 * max(len(games), 1) for _, games in sections)
+    def row_height(game):
+        latest = len(game["latest_achievements"])
+        more = bool(game["achievements"] and game["achievements"][0] > latest)
+        return 114 + latest * 34 + (17 if more else 0)
+
+    height = 92 + sum(36 + sum(map(row_height, games)) + (90 if not games else 0) for _, games in sections)
     parts = [
         f'<svg xmlns="http://www.w3.org/2000/svg" width="480" height="{height}" viewBox="0 0 480 {height}" role="img" aria-label="Steam profile and games">',
         '<style>text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}'
-        '.bg{fill:#fff;stroke:#d0d7de}.title{fill:#24292f;font-size:16px;font-weight:600}'
-        '.section{fill:#0969da;font-size:15px;font-weight:600}.name{fill:#0969da;font-size:14px;font-weight:600}'
-        '.meta{fill:#57606a;font-size:12px}.rule{stroke:#d8dee4}.tile{fill:#eaeef2}'
-        '@media(prefers-color-scheme:dark){.bg{fill:#0d1117;stroke:#30363d}'
-        '.title{fill:#e6edf3}.section,.name{fill:#58a6ff}.meta{fill:#8b949e}'
-        '.rule{stroke:#30363d}.tile{fill:#21262d}}</style>',
-        f'<rect class="bg" x="0.5" y="0.5" width="479" height="{height - 1}" rx="6"/>',
-        '<text class="title" x="20" y="31">Steam</text>',
-        f'<text class="meta" x="20" y="56">{clean(data["name"], 44)} · Level {data["level"]}</text>',
-        f'<text class="meta" x="20" y="78">{data["count"]} games · {data["hours"]:,.0f} hours played</text>',
+        '.title,.section,.name{fill:#0969da;font-size:15px;font-weight:400}'
+        '.section{font-size:16px}.name{font-size:14px}.meta{fill:#57606a;font-size:12px}'
+        '.player{fill:#57606a;font-size:13px}.glyph{fill:#8c959f;font-size:15px}.tile{fill:#eaeef2}'
+        '@media(prefers-color-scheme:dark){.title,.section,.name{fill:#58a6ff}'
+        '.meta,.player{fill:#8b949e}.glyph{fill:#959da5}.tile{fill:#21262d}}</style>',
+        '<text class="glyph" x="15" y="24">◉</text>',
+        '<text class="title" x="37" y="24">Steam</text>',
+        f'<text class="glyph" x="15" y="49">♙</text><text class="player" x="36" y="49">{clean(data["name"], 27)}</text>',
+        f'<text class="glyph" x="250" y="49">☆</text><text class="player" x="271" y="49">Steam level {data["level"]}</text>',
+        f'<text class="glyph" x="15" y="72">◇</text><text class="player" x="36" y="72">{data["count"]} games</text>',
+        f'<text class="glyph" x="250" y="72">◷</text><text class="player" x="271" y="72">{data["hours"]:,.0f} hours played</text>',
     ]
-    y = 108
+    y = 92
     for heading, games in sections:
-        parts.append(f'<text class="section" x="20" y="{y + 24}">{heading}</text>')
-        y += 42
+        parts.append(f'<text class="glyph" x="49" y="{y + 18}">☷</text>')
+        parts.append(f'<text class="section" x="72" y="{y + 18}">{heading}</text>')
+        y += 36
         if not games:
-            parts.append(f'<text class="meta" x="20" y="{y + 28}">No games to show.</text>')
-            y += 170
+            parts.append(f'<text class="meta" x="72" y="{y + 22}">No games to show.</text>')
+            y += 90
         for game in games:
             app_id = int(game["appid"])
-            parts.append(f'<line class="rule" x1="20" x2="460" y1="{y}" y2="{y}"/>')
             if game["icon"]:
-                parts.append(f'<image x="20" y="{y + 14}" width="32" height="32" href="{game["icon"]}"/>')
+                parts.append(f'<image x="55" y="{y + 2}" width="32" height="32" href="{game["icon"]}"/>')
             else:
-                parts.append(f'<rect class="tile" x="20" y="{y + 14}" width="32" height="32" rx="5"/>')
+                parts.append(f'<rect class="tile" x="55" y="{y + 2}" width="32" height="32" rx="5"/>')
             parts.extend([
-                f'<a href="https://store.steampowered.com/app/{app_id}/"><text class="name" x="62" y="{y + 29}">{clean(game.get("name", "Unknown game"), 46)}</text></a>',
-                f'<text class="meta" x="62" y="{y + 48}">{clean(game["genres"], 55)}</text>',
-                f'<text class="meta" x="62" y="{y + 70}">{game.get("playtime_forever", 0) / 60:,.1f} hours played</text>',
-                f'<text class="meta" x="62" y="{y + 89}">Last played {date(game["rtime_last_played"]) if game.get("rtime_last_played") else "—"}</text>',
+                f'<a href="https://store.steampowered.com/app/{app_id}/"><text class="name" x="96" y="{y + 15}">{clean(game.get("name", "Unknown game"), 48)}</text></a>',
+                f'<text class="meta" x="96" y="{y + 34}">{clean(game["genres"], 50)}</text>',
+                f'<text class="meta" x="96" y="{y + 53}">◷ {game.get("playtime_forever", 0) / 60:,.0f} hours played</text>',
+                f'<text class="meta" x="96" y="{y + 72}">▤ Last played on {date(game["rtime_last_played"]) if game.get("rtime_last_played") else "—"}</text>',
             ])
             achieved = game["achievements"]
             count = f'{achieved[0]} / {achieved[1]} achievements unlocked' if achieved else "Achievements unavailable"
-            parts.append(f'<text class="meta" x="62" y="{y + 109}">{count}</text>')
+            parts.append(f'<text class="meta" x="96" y="{y + 91}">♧ {count}</text>')
             for index, item in enumerate(game["latest_achievements"]):
+                ay = y + 101 + index * 34
+                if item.get("icon"):
+                    parts.append(f'<image x="110" y="{ay}" width="22" height="22" href="{item["icon"]}"/>')
+                else:
+                    parts.append(f'<rect class="tile" x="110" y="{ay}" width="22" height="22" rx="4"/>')
                 name = item.get("name") or item.get("apiname") or "Achievement"
-                parts.append(
-                    f'<text class="meta" x="62" y="{y + 131 + index * 18}">✓ {clean(name, 46)} · {date(item["unlocktime"])}</text>'
-                )
-            y += 170
+                parts.extend([
+                    f'<text class="name" x="140" y="{ay + 10}">{clean(name, 31)}</text>',
+                    f'<text class="meta" x="457" y="{ay + 10}" text-anchor="end">{date(item["unlocktime"])}</text>',
+                    f'<text class="meta" x="140" y="{ay + 26}">{clean(item.get("description", ""), 45)}</text>',
+                ])
+            latest_count = len(game["latest_achievements"])
+            if achieved and achieved[0] > latest_count:
+                more = achieved[0] - latest_count
+                parts.append(f'<text class="meta" x="141" y="{y + 113 + latest_count * 34}">+{more} others...</text>')
+            y += row_height(game)
     parts.append("</svg>")
     return "\n".join(parts) + "\n"
 
