@@ -92,8 +92,9 @@ def steam_data(key, steam_id):
     games = response.get("games")
     if games is None:
         raise RuntimeError("Steam did not return the games list; check profile privacy")
-    player = steam_api(
-        "ISteamUser/GetPlayerSummaries/v0002/", key, steam_id
+    summary_query = urlencode({"key": key, "steamids": steam_id, "format": "json"})
+    player = get_json(
+        "https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?" + summary_query
     ).get("response", {}).get("players", [{}])[0]
     level = steam_api(
         "IPlayerService/GetSteamLevel/v1/", key, steam_id
