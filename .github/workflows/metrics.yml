@@ -87,4 +87,5 @@ jobs:
           plugin_steam_sections: player, most-played, recently-played
           plugin_steam_games_limit: 3
           plugin_steam_recent_games_limit: 3
+          plugin_steam_achievements_limit: 0
           plugins_errors_fatal: yes
