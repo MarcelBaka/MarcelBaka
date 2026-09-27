@@ -156,6 +156,15 @@ def date(timestamp):
     return datetime.fromtimestamp(timestamp, TIMEZONE).strftime("%d %b %Y")
 
 
+def embedded_image(source, x, y, size):
+    return (
+        f'<foreignObject x="{x}" y="{y}" width="{size}" height="{size}">'
+        f'<img xmlns="http://www.w3.org/1999/xhtml" src="{source}" '
+        f'width="{size}" height="{size}" style="border-radius:5px"/>'
+        '</foreignObject>'
+    )
+
+
 def render(data):
     sections = [("Most played", data["most"]), ("Recently played", data["recent"])]
     def row_height(game):
@@ -190,7 +199,7 @@ def render(data):
         for game in games:
             app_id = int(game["appid"])
             if game["icon"]:
-                parts.append(f'<image x="55" y="{y + 2}" width="32" height="32" href="{game["icon"]}"/>')
+                parts.append(embedded_image(game["icon"], 55, y + 2, 32))
             else:
                 parts.append(f'<rect class="tile" x="55" y="{y + 2}" width="32" height="32" rx="5"/>')
             parts.extend([
@@ -205,7 +214,7 @@ def render(data):
             for index, item in enumerate(game["latest_achievements"]):
                 ay = y + 101 + index * 34
                 if item.get("icon"):
-                    parts.append(f'<image x="110" y="{ay}" width="22" height="22" href="{item["icon"]}"/>')
+                    parts.append(embedded_image(item["icon"], 110, ay, 22))
                 else:
                     parts.append(f'<rect class="tile" x="110" y="{ay}" width="22" height="22" rx="4"/>')
                 name = item.get("name") or item.get("apiname") or "Achievement"
