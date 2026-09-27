@@ -27,4 +27,4 @@ I build small games and desktop tools. My recent work uses Python, Pygame and Sw
 
 ![Steam profile, most played and recently played games](./metrics.steam.svg)
 
-<sub>Statistics generated with [lowlighter/metrics](https://github.com/lowlighter/metrics). Updated daily.</sub>
+<sub>GitHub stats: [lowlighter/metrics](https://github.com/lowlighter/metrics). Steam data: Steam Web API. Updated daily.</sub>
