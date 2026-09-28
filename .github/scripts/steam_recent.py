@@ -14,6 +14,11 @@ from zoneinfo import ZoneInfo
 
 OUTPUT = "metrics.steam.svg"
 TIMEZONE = ZoneInfo("Europe/Warsaw")
+# Steam's schema omits these Crosshair X icons; the official community page has them.
+COMMUNITY_ACHIEVEMENT_ICONS = {
+    (1366800, "Bullseye!"): "https://shared.akamai.steamstatic.com/community_assets/images/apps/1366800/192cbd00beacd06f9a6f62df8e52686fd96df2d3.jpg",
+    (1366800, "Locked In"): "https://shared.akamai.steamstatic.com/community_assets/images/apps/1366800/9c3f1f5df6aeb19f0e33149087a6542b66e3c402.jpg",
+}
 
 
 def get_json(url, token=None):
@@ -124,6 +129,7 @@ def enrich(game, key, steam_id):
                 "icon": (
                     image_data(schema.get(item.get("apiname"), {}).get("icon"))
                     or image_data(schema.get(item.get("apiname"), {}).get("icongray"))
+                    or image_data(COMMUNITY_ACHIEVEMENT_ICONS.get((appid, item.get("name"))))
                 ),
             }
             for item in latest
