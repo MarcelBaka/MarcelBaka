@@ -19,10 +19,6 @@ I build small games and desktop tools. My recent work uses Python, Pygame and Sw
 
 ![Languages across my repositories](./metrics.languages.svg)
 
-## WakaTime
-
-![Weekly coding activity from WakaTime](./metrics.wakatime.svg)
-
 ## Repository traffic
 
 ![Views across my repositories](./metrics.traffic.svg)
@@ -31,4 +27,4 @@ I build small games and desktop tools. My recent work uses Python, Pygame and Sw
 
 ![Steam profile, most played and recently played games](./metrics.steam.svg)
 
-<sub>GitHub and WakaTime stats: [lowlighter/metrics](https://github.com/lowlighter/metrics). Steam data: Steam Web API. Updated daily.</sub>
+<sub>GitHub stats: [lowlighter/metrics](https://github.com/lowlighter/metrics). Steam data: Steam Web API. Updated daily.</sub>
