@@ -36,4 +36,4 @@ I build desktop apps and games. Lately, I have been working with TypeScript, God
 
 ![Steam profile, most played and recently played games](./metrics.steam.svg)
 
-<sub>GitHub stats: [lowlighter/metrics](https://github.com/lowlighter/metrics). Steam data: Steam Web API. Updated every three hours.</sub>
+<sub>GitHub stats: [lowlighter/metrics](https://github.com/lowlighter/metrics). Steam data: Steam Web API. Updated every four hours.</sub>
