@@ -1,8 +1,16 @@
 # Marcel
 
-I build desktop apps and games. Lately, I have been working with TypeScript, Godot, Python and Swift.
+I build desktop apps, developer tools and games. Lately, I have been working with TypeScript, Godot, Python and Swift.
 
 [Personal website](https://marcelbaka.github.io/)
+
+## Open source
+
+### [Claude Code Discord Presence](https://github.com/MarcelBaka/claude-code-discord-presence)
+
+A Windows tool that shows your Claude Code activity on Discord: the active project, working or waiting status, token usage, estimated cost and a live session timer. It runs locally and starts with Claude Code. The source is available under the MIT license, with setup instructions in the [project README](https://github.com/MarcelBaka/claude-code-discord-presence#quick-start).
+
+[![Claude Code activity preview on Discord](https://raw.githubusercontent.com/MarcelBaka/claude-code-discord-presence/main/assets/screenshot.png)](https://github.com/MarcelBaka/claude-code-discord-presence)
 
 ## In development
 
