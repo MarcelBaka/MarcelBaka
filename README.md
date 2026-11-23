@@ -6,6 +6,12 @@ I build desktop apps, developer tools and games. Lately, I have been working wit
 
 ## Open source
 
+### [Codex Discord Presence](https://github.com/MarcelBaka/codex-discord-presence)
+
+A local Discord integration for OpenAI Codex. It shows the active project, activity, token usage, estimated API cost and a session timer. Installers are available for Windows, macOS and Linux. See the [setup guide](https://github.com/MarcelBaka/codex-discord-presence#install). MIT licensed.
+
+[![Codex activity preview on Discord](https://raw.githubusercontent.com/MarcelBaka/codex-discord-presence/main/docs/discord-presence.png)](https://github.com/MarcelBaka/codex-discord-presence)
+
 ### [Claude Code Discord Presence](https://github.com/MarcelBaka/claude-code-discord-presence)
 
 A Windows tool that shows your Claude Code activity on Discord: the active project, working or waiting status, token usage, estimated cost and a live session timer. It runs locally and starts with Claude Code. The source is available under the MIT license, with setup instructions in the [project README](https://github.com/MarcelBaka/claude-code-discord-presence#quick-start).
