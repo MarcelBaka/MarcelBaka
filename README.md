@@ -8,7 +8,7 @@ I build desktop apps, developer tools and games. Lately, I have been working wit
 
 ### [Claude Touch Bar](https://github.com/MarcelBaka/Claude-TouchBar)
 
-A native macOS companion for Claude Code. It shows live activity, usage limits and project details on the Touch Bar, and lets you answer questions or permission requests with a tap. It also has a floating preview for Macs without a Touch Bar. [Download](https://github.com/MarcelBaka/Claude-TouchBar/releases/latest) - [Setup](https://github.com/MarcelBaka/Claude-TouchBar#install).
+A fork of [dawiddrzewiecki/Claude-TouchBar](https://github.com/dawiddrzewiecki/Claude-TouchBar) adapted for older macOS versions. It supports macOS 10.15 Catalina and later, while the original requires macOS 13 or later. The native app shows Claude Code activity, usage limits and project details on the Touch Bar, and lets you answer questions or permission requests with a tap. It also has a floating preview for Macs without a Touch Bar. [Download](https://github.com/MarcelBaka/Claude-TouchBar/releases/latest) - [Setup](https://github.com/MarcelBaka/Claude-TouchBar#install).
 
 <a href="https://github.com/MarcelBaka/Claude-TouchBar"><img src="https://raw.githubusercontent.com/MarcelBaka/Claude-TouchBar/main/docs/images/working.png" alt="Claude Touch Bar showing activity and usage limits" width="640"></a>
 
