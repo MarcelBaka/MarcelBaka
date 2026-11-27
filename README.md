@@ -6,6 +6,12 @@ I build desktop apps, developer tools and games. Lately, I have been working wit
 
 ## Open source
 
+### [Claude Touch Bar](https://github.com/MarcelBaka/Claude-TouchBar)
+
+A native macOS companion for Claude Code. It shows live activity, usage limits and project details on the Touch Bar, and lets you answer questions or permission requests with a tap. It also has a floating preview for Macs without a Touch Bar. [Download](https://github.com/MarcelBaka/Claude-TouchBar/releases/latest) - [Setup](https://github.com/MarcelBaka/Claude-TouchBar#install).
+
+<a href="https://github.com/MarcelBaka/Claude-TouchBar"><img src="https://raw.githubusercontent.com/MarcelBaka/Claude-TouchBar/main/docs/images/working.png" alt="Claude Touch Bar showing activity and usage limits" width="640"></a>
+
 ### [Codex Discord Presence](https://github.com/MarcelBaka/codex-discord-presence)
 
 A local Discord integration for OpenAI Codex. It shows the active project, activity, token usage, estimated API cost and a session timer. Installers are available for Windows, macOS and Linux. See the [setup guide](https://github.com/MarcelBaka/codex-discord-presence#install). MIT licensed.
@@ -14,7 +20,7 @@ A local Discord integration for OpenAI Codex. It shows the active project, activ
 
 ### [Claude Code Discord Presence](https://github.com/MarcelBaka/claude-code-discord-presence)
 
-A Windows tool that shows your Claude Code activity on Discord: the active project, working or waiting status, token usage, estimated cost and a live session timer. It runs locally and starts with Claude Code. The source is available under the MIT license, with setup instructions in the [project README](https://github.com/MarcelBaka/claude-code-discord-presence#quick-start).
+A local tool for Windows and macOS that shows your Claude Code activity on Discord - the active project, working or waiting status, token usage, estimated cost and a live session timer. It starts with Claude Code. Linux support is experimental. MIT licensed, with setup instructions in the [project README](https://github.com/MarcelBaka/claude-code-discord-presence#quick-start).
 
 [![Claude Code activity preview on Discord](https://raw.githubusercontent.com/MarcelBaka/claude-code-discord-presence/main/assets/screenshot.png)](https://github.com/MarcelBaka/claude-code-discord-presence)
 
